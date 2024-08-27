@@ -88,11 +88,11 @@ The dataset analysis is done in preprocess.py. For the analysis, we performed se
 <p align="center">fig 10:data distrubution of Self_Employed</p>
 
 ![Loan_Status](data/plot/Loan_Status.png)
-<p align="center">fig 10:data distrubution of Loan_Status</p>
+<p align="center">fig 11:data distrubution of Loan_Status</p>
 
 
 ![Summary](data/plot/screenshot.png)
-<p align="center">fig 10:data summary</p>
+<p align="center">fig 12:data summary</p>
 
 ## Data Preprocessing
 for preprocessing of the data following methods are applied:
