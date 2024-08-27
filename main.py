@@ -5,7 +5,7 @@ from predict import main
 def get_user_input():
     st.title("Loan Approval Prediction Form")
 
-    loan_id = st.text_input("Loan ID", value="LP2023")
+    # loan_id = st.text_input("Loan ID", value="LP2023")
     gender = st.selectbox("Gender", options=["Male", "Female"])
     married = st.selectbox("Married?", options=["Yes", "No"])
     dependents = st.number_input("Number of Dependents", min_value=0, max_value=10, step=1, value=0)
@@ -20,7 +20,7 @@ def get_user_input():
 
     if st.button("Submit"):
         new_data = pd.DataFrame({
-            'Loan_ID': [loan_id],
+            # 'Loan_ID': [loan_id],
             'Gender': [gender],
             'Married': [married],
             'Dependents': [dependents],
@@ -37,7 +37,7 @@ def get_user_input():
         st.write("Here is the input data you provided:")
         st.write(new_data)
 
-        # You can then pass this new_data to your prediction function
+        
         return new_data
     return None
 

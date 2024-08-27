@@ -13,6 +13,7 @@ def get_xy(df):
     y=df['Loan_Status']
     return x,y
 
+
 def split_data(df, test_size=0.2, random_state=0):
     """
     Splits the DataFrame into training and testing sets.
@@ -34,13 +35,14 @@ def split_data(df, test_size=0.2, random_state=0):
     return x_train, x_test, y_train, y_test
 
 
+
 def apply_encoder(x_train,x_test,y_train,y_test):
     df_columns=x_train.select_dtypes(include=['object']).columns
-    print()
-    print(f"testcol:{x_test.columns}")
+    # print()
+    # print(f"testcol:{x_test.columns}")
 
     for col in  df_columns:
-        print(f"col:{col}")
+        # print(f"col:{col}")
         x_train[col]=label_encoder.fit_transform(x_train[col])
         
         x_test[col]=label_encoder.fit_transform(x_test[col])
@@ -48,8 +50,8 @@ def apply_encoder(x_train,x_test,y_train,y_test):
     y_test=label_encoder.fit_transform(y_test)
     print(f":type:{type(y_test)}")
         # print(f"{col}:{df[col]}:")
-    a=y_test[0]
-    print(a)
+    # a=y_test[0]
+    # print(a)
     
 
     # print(x_train.shape[1])

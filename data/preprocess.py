@@ -31,8 +31,8 @@ def load_data(file_path='data/dataset/data.xlsx'):
 
 def visualize_dataset(df):
     # Display basic information
-    print("First few rows of the dataset:")
-    print(df.head())
+    # print("First few rows of the dataset:")
+    # print(df.head())
     
     print("\nSummary statistics:")
     print(df.describe())
@@ -46,7 +46,8 @@ def visualize_dataset(df):
         plt.title(f'Distribution of {feature}')
         plt.xlabel(feature)
         plt.ylabel('Frequency')
-        plt.show()
+        # plt.show()
+        plt.savefig(f"data/plot/{feature}.png")
     
     # Visualize distributions of categorical features
     cat_features = df.select_dtypes(include=['object']).columns
@@ -56,14 +57,8 @@ def visualize_dataset(df):
         plt.title(f'Distribution of {feature}')
         plt.xlabel('Count')
         plt.ylabel(feature)
-        plt.show()
-    
-    # # Visualize relationships between numerical features
-    # if len(num_features) > 1:
-    #     plt.figure(figsize=(12, 8))
-    #     sns.pairplot(df[num_features])
-    #     plt.suptitle('Pairplot of Numerical Features', y=1.02)
-    #     plt.show()
+        # plt.show()
+        plt.savefig(f"data/plot/{feature}.png")
     
 
 def check_null_and_fill(df):
@@ -80,10 +75,30 @@ def check_null_and_fill(df):
    print(f"null_info{null_info}")
    return df
 
-def save_preprocessed_df(df,path='data/preprocessed.csv'):
+def drop_column(df, drop_columns=None):
+    """
+    Loads the dataset from a CSV file and drops specified columns.
+    
+    Parameters:
+    file_path (str): The path to the CSV file.
+    drop_columns (list): List of column names to drop from the DataFrame.
+    
+    Returns:
+    df (pd.DataFrame): The preprocessed DataFrame.
+    """
+    drop_columns='Loan_ID'
+    if drop_columns:
+        df.drop(columns=drop_columns, inplace=True)
+    
+    return df
+
+def save_preprocessed_df(df,path='data/preprocessed1.csv'):
     df.to_csv(path,index=False)
 
+def main():
+    df=load_data()
+    df= drop_column(df)
+    df=check_null_and_fill(df)
+    # save_preprocessed_df(df)
 
-# df=load_data()
-# df=check_null_and_fill(df)
-# save_preprocessed_df(df)
+main()

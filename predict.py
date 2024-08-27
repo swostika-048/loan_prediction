@@ -60,7 +60,7 @@ def main(df):
         1: 'Approved'
     }
     
-    model=load_model('model/model.pkl')
+    model=load_model('model/logistic.pkl')
     # df=get_data()
 
     df=preprocess_data(df)
@@ -73,3 +73,6 @@ def main(df):
     print(mapped_predictions)
 
     return mapped_predictions
+
+# df=get_data()
+# main(df)
