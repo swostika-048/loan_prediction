@@ -97,8 +97,9 @@ def save_preprocessed_df(df,path='data/preprocessed1.csv'):
 
 def main():
     df=load_data()
+    print(df)
     df= drop_column(df)
     df=check_null_and_fill(df)
-    # save_preprocessed_df(df)
+    save_preprocessed_df(df)
 
 main()

@@ -78,7 +78,7 @@ def main():
 
 
 
-    model_path='model/model.pkl'
+    model_path='model/dtc.pkl'
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
 

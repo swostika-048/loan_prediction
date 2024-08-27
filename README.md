@@ -2,10 +2,15 @@
 - [Loan  Approval Prediction](#loan--approval-prediction)
   - [Data analysis](#data-analysis)
     - [Typical Features in the Loan Prediction Dataset](#typical-features-in-the-loan-prediction-dataset)
-    - [**visualization of data**](#visualization-of-data)
+    - [visualization of data](#visualization-of-data)
   - [Data Preprocessing](#data-preprocessing)
   - [Model](#model)
-  - [Output Analysis](#output-analysis)
+    - [Evaluation of implemented models](#evaluation-of-implemented-models)
+      - [RandomForestClassifier:](#randomforestclassifier)
+      - [GaussianNB:](#gaussiannb)
+      - [DecisionTreeClassifier](#decisiontreeclassifier)
+      - [LogisticRegression](#logisticregression)
+  - [UI  for user interaction using streamlit:](#ui--for-user-interaction-using-streamlit)
   - [project discription](#project-discription)
 
 ## Data analysis
@@ -51,7 +56,7 @@ The dataset analysis is done in preprocess.py. For the analysis, we performed se
 2. Checked for null values and filled them with the mode value.
 3. Visualized the distribution of both categorical and numerical features.
    
-### **visualization of data**
+### visualization of data
 ![Applicant Income](data/plot/ApplicantIncome.png)
 <p align="center">fig 1:data distrubution of applicant income </p>
 
@@ -82,6 +87,10 @@ The dataset analysis is done in preprocess.py. For the analysis, we performed se
 ![Self_Employed](data/plot/Self_Employed.png)
 <p align="center">fig 10:data distrubution of Self_Employed</p>
 
+![Loan_Status](data/plot/Loan_Status.png)
+<p align="center">fig 10:data distrubution of Loan_Status</p>
+
+
 ![Summary](data/plot/screenshot.png)
 <p align="center">fig 10:data summary</p>
 
@@ -91,7 +100,104 @@ for preprocessing of the data following methods are applied:
 2. Data encoding process
 3. splitting data to training and testing part where training is about 80% of the total data and rest of the 20% for testing
 ## Model
-for  load approval prediction 
-## Output Analysis
+For loan approval prediction, the LogisticRegression, DecisionTreeClassifier, RandomForestClassifier, and GaussianNB models were implemented and tested. The trained models were saved in the model directory. The model trained with LogisticRegression is saved at model/logistic.pkl, the GaussianNB model is saved at model/nb_model.pkl, and the RandomForest model is saved at model/rfc_re.pkl
+
+### Evaluation of implemented models 
+#### RandomForestClassifier:
+**confusion matrix  when evaluating randomforest classifier:**
+
+![confustion matrix](data/plot/cm_rfc.png)
+
+**accuracy,losses and some evaluation matrices:**
+
+![evaluation](data/plot/rfc.png)
+#### GaussianNB:
+**confusion matrix  when evaluating the gussian nb model:**
+
+![confustion matrix](data/plot/nb.png)
+
+**accuracy,losses and some evaluation matrices:**
+
+![report](data/plot/nb_report.png)
+
+#### DecisionTreeClassifier
+**confusion matrix  when evaluating the decision tree classifier:**
+
+![cm](data/plot/cm_dtc.png)
+
+**accuracy,losses and some evaluation matrices:**
+
+![report](data/plot/dtf.png)
+
+#### LogisticRegression
+
+**confusion matrix  when evaluating the decision tree classifier:**
+
+![cm](data/plot/logistic.png)
+
+**accuracy,losses and some evaluation matrices:**
+
+![report](data/plot/logisticv.png)
+
+After analyzing the results and evaluations from different models, we observe that, except for the Random Forest classifier, all models exhibit unusual behavior, showing higher training loss and lower validation loss. This behavior may be attributed to factors such as data distribution issues, including class imbalances, noise, and dataset size, which can significantly impact model performance, especially since our data is not balanced.
+
+In contrast, the Random Forest classifier shows higher training accuracy compared to validation accuracy. This discrepancy can be managed by adjusting the number of estimators (i.e., the number of trees) used in the Random Forest model.
+
+## UI  for user interaction using streamlit:
+
 
 ## project discription
+**folder hierarchy:**
+- loan_prediction
+  - data
+    - dataset
+    - plot
+    - encoded.csv
+    - preprocess.py
+    - preprocessed1.csv
+    - model
+      - dtc.pkl
+      - logstic.pkl
+      - model.pkl
+      - rfc_re.pkl
+  - src
+    - evaluate.py
+    - model.py
+    - train.py
+  - utils
+  - main.py
+  - predict.py
+  - requirements.txt
+
+To test the prediction do:
+```
+python main.py # with streamlit application
+predict.py  # without streamlit application
+
+```
+for making box section to get input from user use the following format:
+```python
+gender = st.selectbox("Gender", options=["Male", "Female"])
+```
+for submission criteria:
+```python
+if st.button("Submit"):
+        new_data = pd.DataFrame({
+            'Gender': [gender],
+            'Married': [married],
+            'Dependents': [dependents],
+            'Education': [education],
+            'Self_Employed': [self_employed],
+            'ApplicantIncome': [applicant_income],
+            'CoapplicantIncome': [coapplicant_income],
+            'LoanAmount': [loan_amount],
+            'Loan_Amount_Term': [loan_amount_term],
+            'Credit_History': [credit_history],
+            'Property_Area': [property_area]
+        })
+```
+output ui screenshot:
+![ui](data/plot/ui_f.png)
+![ui](data/plot/ui_s.png)
+
+

@@ -15,14 +15,14 @@ from sklearn.linear_model import LogisticRegression
 
 def train(x_train,y_train):
     # model=RandomForestClassifier(n_estimators=50, random_state=0)
-    model=GaussianNB()
-    # model = DecisionTreeClassifier(random_state=0)
+    # model=GaussianNB()
+    model = DecisionTreeClassifier(random_state=0)
     
-    model = LogisticRegression()
+    # model = LogisticRegression()
     model.fit(x_train,y_train)
     return model
 
-def save_model(model,path='model/model.pkl'):
+def save_model(model,path='model/dtc.pkl'):
     with open(path, 'wb') as file:
         pickle.dump(model, file)
     
