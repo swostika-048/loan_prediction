@@ -203,5 +203,8 @@ output ui screenshot:
 
 
 ## References
-[https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s](https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s0)
-[https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/](https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/)
+- [https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s0](https://www.youtube.com/watchv=x2NrPeHSPU0&t=3119s0)
+- [https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/](https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/)
+- [https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s](https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s)
+
+
