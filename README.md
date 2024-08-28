@@ -12,6 +12,7 @@
       - [LogisticRegression](#logisticregression)
   - [UI  for user interaction using streamlit:](#ui--for-user-interaction-using-streamlit)
   - [project discription](#project-discription)
+  - [References](#references)
 
 ## Data analysis
 In a loan prediction project, the goal is to build a machine learning model that can predict whether a loan application will be approved or not based on various factors. The data used for this project typically comes in the form of a CSV file containing information about previous loan applications. Each row in the dataset represents a loan application, and each column represents a specific feature or characteristic of the loan application.
@@ -201,3 +202,6 @@ output ui screenshot:
 ![ui](data/plot/ui_s.png)
 
 
+## References
+[https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s](https://www.youtube.com/watch?v=x2NrPeHSPU0&t=3119s0)
+[https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/](https://www.geeksforgeeks.org/loan-approval-prediction-using-machine-learning/)
